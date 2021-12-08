@@ -1,0 +1,4 @@
+services:
+  plugin.manager.search_api_pantheon_ltr_trainer:
+    class: Drupal\search_api_pantheon_ltr\SearchApiPantheonLtrTrainerPluginManager
+    parent: default_plugin_manager
