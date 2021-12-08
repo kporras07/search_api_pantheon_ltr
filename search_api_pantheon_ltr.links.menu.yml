@@ -1,0 +1,5 @@
+entity.search_api_pantheon_ltr.overview:
+  title: Search API Pantheon LTR Settings
+  parent: search_api.overview
+  description: 'List of Search API Pantheon LTR Settings.'
+  route_name: entity.search_api_pantheon_ltr.collection

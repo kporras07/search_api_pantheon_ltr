@@ -1,0 +1,22 @@
+search_api_pantheon_ltr.search_api_pantheon_ltr.*:
+  type: config_entity
+  label: Search API Pantheon LTR Settings
+  mapping:
+    id:
+      type: string
+      label: ID
+    label:
+      type: label
+      label: Label
+    uuid:
+      type: string
+    indexId:
+      type: string
+    docs:
+      type: int
+    relevancyAnnotations:
+      type: string
+    ltrTrainerMethod:
+      type: string
+    ltrTrainerConfiguration:
+      type: string

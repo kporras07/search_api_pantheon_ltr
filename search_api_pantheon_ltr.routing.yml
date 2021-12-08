@@ -1,0 +1,31 @@
+entity.search_api_pantheon_ltr.collection:
+  path: '/admin/config/search/search-api/ltr'
+  defaults:
+    _entity_list: 'search_api_pantheon_ltr'
+    _title: 'Search API Pantheon LTR Settings configuration'
+  requirements:
+    _permission: 'administer search_api_pantheon_ltr'
+
+entity.search_api_pantheon_ltr.add_form:
+  path: '/admin/config/search/search-api/ltr/add'
+  defaults:
+    _entity_form: 'search_api_pantheon_ltr.add'
+    _title: 'Add a Search API Pantheon LTR setting'
+  requirements:
+    _permission: 'administer search_api_pantheon_ltr'
+
+entity.search_api_pantheon_ltr.edit_form:
+  path: '/admin/config/search/search-api/ltr/{search_api_pantheon_ltr}'
+  defaults:
+    _entity_form: 'search_api_pantheon_ltr.edit'
+    _title: 'Edit a Search API Pantheon LTR Setting'
+  requirements:
+    _permission: 'administer search_api_pantheon_ltr'
+
+entity.search_api_pantheon_ltr.delete_form:
+  path: '/admin/config/search/search-api/ltr/{search_api_pantheon_ltr}/delete'
+  defaults:
+    _entity_form: 'search_api_pantheon_ltr.delete'
+    _title: 'Delete a Search API Pantheon LTR Setting'
+  requirements:
+    _permission: 'administer search_api_pantheon_ltr'

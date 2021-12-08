@@ -1,0 +1,12 @@
+name: Search API Pantheon Learn to Rank
+type: module
+description: 'Provides a search api pantheon ltr settings configuration entity.'
+package: Search
+core_version_requirement: ^8 || ^9
+dependencies:
+  - search_api:search_api
+  - search_api_solr:search_api_solr
+  - search_api_pantheon:search_api_pantheon
+
+# Todo: Change to settings form?
+configure: entity.search_api_pantheon_ltr.collection
