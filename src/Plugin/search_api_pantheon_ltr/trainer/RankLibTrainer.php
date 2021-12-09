@@ -9,7 +9,7 @@ use Drupal\search_api_pantheon_ltr\SearchApiPantheonLtrTrainerPluginBase;
 /**
  * Provides ltr training with a local ranklib jar file.
  *
- * @SearchApiLtrLtrTrainer(
+ * @SearchApiPantheonLtrTrainer(
  *   id = "ranklib_trainer",
  *   label = @Translation("Direct Ranklib.jar LTR Trainer"),
  *   description = @Translation("Adds LTR Ranklib training support."),
