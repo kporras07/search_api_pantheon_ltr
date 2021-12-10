@@ -15,3 +15,12 @@ Search API Pantheon Learn to Rank
 
 Next:
 - Post initial models and features!
+
+curl -XPUT 'http://localhost:8983/solr/solr8-sandbox_shard1_replica_n1/schema/feature-store' --data-binary "@./features/my_efi_features.json" -H 'Content-type:application/json'
+curl -XPUT 'http://localhost:8983/solr/solr8-sandbox_shard1_replica_n1/schema/model-store' --data-binary "@./models/linear.json" -H 'Content-type:application/json'
+
+
+https://opensource.com/article/17/11/learning-rank-apache-solr
+https://solr.apache.org/docs/6_6_1/solr-ltr/org/apache/solr/ltr/model/LinearModel.html
+
+http://mirror.olnevhost.net/pub/apache/lucene/solr/ref-guide/apache-solr-ref-guide-8.1.pdf
