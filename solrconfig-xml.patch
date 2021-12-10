@@ -1,0 +1,57 @@
+diff --git a/solr/solr8/cloud-config-set/solrconfig.xml b/solr/solr8/cloud-config-set/solrconfig.xml
+index 3e252d4f..72224b5f 100644
+--- a/solr/solr8/cloud-config-set/solrconfig.xml
++++ b/solr/solr8/cloud-config-set/solrconfig.xml
+@@ -808,4 +808,52 @@
+      <transformer name="qecBooster" class="org.apache.solr.response.transform.EditorialMarkerFactory" />
+     -->
+ 
++  <!--lib dir="${solr.install.dir:../../../..}/contrib/extraction/lib" regex=".*\.jar"/>
++  <lib dir="${solr.install.dir:../../../..}/dist/" regex="solr-cell-\d.*\.jar"/>
++  <lib dir="${solr.install.dir:../../../..}/contrib/langid/lib/" regex=".*\.jar"/>
++  <lib dir="${solr.install.dir:../../../..}/dist/" regex="solr-langid-\d.*\.jar"/-->
++  <lib dir="${solr.install.dir:../../../..}/dist/" regex="solr-ltr-\d.*\.jar"/>
++  <!--lib dir="${solr.install.dir:../../../..}/contrib/velocity/lib" regex=".*\.jar"/>
++  <lib dir="${solr.install.dir:../../../..}/dist/" regex="solr-velocity-\d.*\.jar"/-->
++
++  <!--  Feature Values Cache
++
++         Cache used by the Learning To Rank (LTR) contrib module.
++
++         You will need to set the solr.ltr.enabled system property
++         when running solr to run with ltr enabled:
++           -Dsolr.ltr.enabled=true
++
++         https://lucene.apache.org/solr/guide/learning-to-rank.html
++       -->
++  <cache enable="${solr.ltr.enabled:false}" name="QUERY_DOC_FV" size="4096" initialSize="2048" autowarmCount="4096" regenerator="solr.search.NoOpRegenerator"/>
++
++  <!--   LTR query parser
++
++        You will need to set the solr.ltr.enabled system property
++        when running solr to run with ltr enabled:
++          -Dsolr.ltr.enabled=true
++
++        https://lucene.apache.org/solr/guide/learning-to-rank.html
++
++        Query parser is used to rerank top docs with a provided model
++     -->
++  <queryParser enable="${solr.ltr.enabled:false}" name="ltr" class="org.apache.solr.ltr.search.LTRQParserPlugin"/>
++
++  <!-- 
++      LTR Transformer will encode the document features in the response. For each document the transformer
++      will add the features as an extra field in the response. The name of the field will be the
++      name of the transformer enclosed between brackets (in this case [features]).
++      In order to get the feature vector you will have to specify that you
++      want the field (e.g., fl="*,[features])
++
++      You will need to set the solr.ltr.enabled system property
++      when running solr to run with ltr enabled:
++        -Dsolr.ltr.enabled=true
++
++      https://lucene.apache.org/solr/guide/learning-to-rank.html
++       -->
++  <transformer enable="${solr.ltr.enabled:false}" name="features" class="org.apache.solr.ltr.response.transform.LTRFeatureLoggerTransformerFactory">
++    <str name="fvCacheName">QUERY_DOC_FV</str>
++  </transformer>
+ </config>
